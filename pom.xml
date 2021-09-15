@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--    Spring boot的管理依赖就不放在parent下面了，已移到下面。
+            此<parent>将用于引用我们公司自己的管理依赖-->
+    <!--    <parent>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--        <version>2.5.4</version>-->
+    <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--    </parent>-->
+    <groupId>com.study</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>order-server</module>
+        <module>stock-server</module>
+    </modules>
+    <name>demo</name>
+    <!--    修改packaging打包方式为pom,因为我们父工程仅仅作为管理依赖使用-->
+    <packaging>pom</packaging>
+    <description>Demo project for Spring Cloud Alibaba</description>
+    <properties>
+        <java.version>1.8</java.version>
+        <spring.cloud.alibaba>2.2.6.RELEASE</spring.cloud.alibaba>
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR9</spring.cloud.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--            spring-cloud-alibaba依赖管理-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--            spring boot依赖管理-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--            spring cloud依赖管理，我们有些组件是需要用到的-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
