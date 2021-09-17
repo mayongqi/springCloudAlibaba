@@ -16,6 +16,7 @@
     <modules>
         <module>order-server</module>
         <module>stock-server</module>
+        <module>product-server</module>
     </modules>
     <name>demo</name>
     <!--    修改packaging打包方式为pom,因为我们父工程仅仅作为管理依赖使用-->

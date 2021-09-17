@@ -2,21 +2,18 @@ package com.study.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @program: demo
- * @description: 库存服务启动类
+ * @description: 商品服务启动类
  * @author: ma
  * @create: 2021-09-13 21:50
  */
 @SpringBootApplication
-@EnableFeignClients
-public class StockApplication {
+public class ProductApplication {
 
 
     public static void main(String[] args) {
-      SpringApplication.run(StockApplication.class, args);
+      SpringApplication.run(ProductApplication.class, args);
     }
-
 }
